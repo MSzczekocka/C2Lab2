@@ -12,4 +12,4 @@ add_executable(Lab2
         safari.h
         simple_simulation.h
         simulation.cpp
-        simulation.h Point.cpp Point.h Vector2D.cpp Vector2D.h)
+        simulation.h Vector2D.cpp Vector2D.h)

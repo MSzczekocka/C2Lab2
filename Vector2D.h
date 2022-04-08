@@ -2,43 +2,63 @@
 #define LAB2_VECTOR2D_H
 
 #include <iostream>
-#include "Point.h"
+#include <cmath>
 
 class Vector2D {
 private:
-    Point p1;
-    Point p2;
+    double x;
+    double y;
 public:
-    Vector2D(const Point p1 = Point(0,0), const Point p2 = Point(0,0)): p1(p1), p2(p2) {};
-    Vector2D(const int x1, const int y1, const int x2, const int y2): p1(Point(x1, y1)), p2(Point(x2, y2)) {};
+    Vector2D(const double x = 0, const double y = 0): x(x), y(y) {};
 
-    const Point &getP1() const {
-        return p1;
+    double getX() const {
+        return x;
     }
-    void setP1(const Point &p1) {
-        Vector2D::p1 = p1;
-    }
-
-    const Point &getP2() const {
-        return p2;
-    }
-    void setP2(const Point &p2) {
-        Vector2D::p2 = p2;
+    void setX(double x) {
+        Vector2D::x = x;
     }
 
-    Vector2D& operator-() {
-        p1.x = -p1.x;
-        p1.y = -p1.y;
-        p2.x = -p2.x;
-        p2.y = -p2.y;
+    double getY() const {
+        return y;
+    }
+    void setY(double y) {
+        Vector2D::y = y;
+    }
+
+
+    Vector2D& operator-() noexcept{
+        x = -x;
+        y = -y;
         return *this;
     }
     Vector2D operator-(const Vector2D v2) const noexcept {
-        return Vector2D(p1 - v2.p1, p2 - v2.p2);
+        return Vector2D(x - v2.x, y - v2.y);
     }
 
-    void Show(const Vector2D v) const noexcept {
-        std::cout <<
+    Vector2D& operator+=(const Vector2D v2) noexcept{
+        x += v2.x;
+        y += v2.y;
+        return *this;
+    }
+
+    Vector2D operator*(const double value) const noexcept{
+        return Vector2D(x * value, y * value);
+    }
+
+    double vLength() const noexcept {
+        return sqrt(pow(x,2) + pow(y, 2));
+    }
+
+    void Show() const noexcept {
+        std::cout << "x: " << x << " y: " << y << std::endl;
+    }
+
+    Vector2D normalize() const noexcept {
+        return Vector2D(x / this->vLength(), y / this->vLength());
+    }
+
+    double dist(const Vector2D v2) const noexcept {
+        return (*this - v2).vLength();
     }
 };
 
