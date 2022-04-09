@@ -2,8 +2,9 @@
 #include <set>
 #include <cstddef>
 #include <cmath>
+#include "animal.h"
 
-class Animal;
+//class Animal;
 class Safari
 {
 	std::set<Animal*> animals, to_remove, to_add;

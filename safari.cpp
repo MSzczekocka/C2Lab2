@@ -64,8 +64,8 @@ void Safari::DoAll()
 	for (Animal* animal : animals)
 		animal->Do(*this);
 #else
-	for (set<Animal*>::iterator it = animals.begin(); it != animals.end(); ++it)
-		(*it)->Do(*this);
+//	for (set<Animal*>::iterator it = animals.begin(); it != animals.end(); ++it)
+//		(*it)->Do(*this);
 #endif
 }
 
