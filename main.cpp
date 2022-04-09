@@ -36,9 +36,23 @@ int main()
 
     std::cout << v1.dist(v2) << std::endl;
 
+    Lion lion1 = Lion(Vector2D(7,4),Vector2D(8,8),11);
+    lion1.Show();
+    Lion lion2 = Lion(Vector2D(11,3),Vector2D(1,7));
+    lion2.Show();
 
+    Gnu* gnu1 = new Gnu(Vector2D(3, 1), Vector2D(4, 4), 1);
+    gnu1->Show();
+    Gnu gnu2 = Gnu(Vector2D(2,7),Vector2D(1,4));
+    gnu2.Show();
+
+    Hyena hyena1 = Hyena(Vector2D(7,3),Vector2D(11,11),155);
+    hyena1.Hyena::Show();
+    Hyena hyena2 = Hyena(Vector2D(2,1),Vector2D(4,5));
+    hyena2.Show();
 
 //	sim->Go();
+    delete gnu1;
 	delete sim;
 	return 0;
 }

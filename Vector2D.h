@@ -63,4 +63,5 @@ public:
 };
 
 
+
 #endif //LAB2_VECTOR2D_H
